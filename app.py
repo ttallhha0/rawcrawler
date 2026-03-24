@@ -81,18 +81,27 @@ def get_status():
         "crawlers": crawlers_list
     })
 
+@app.route('/search', methods=['GET'])
+def search_legacy():
+    """Support for assignment's exact route /search ."""
+    query = request.args.get('query', '')
+    sort_by = request.args.get('sortBy', 'frequency')
+    results = search_service.search(query, sort_by=sort_by)
+    return jsonify({"results": results})
+
 @app.route('/api/search', methods=['GET'])
 def search():
     """Search indexed pages using the SearchService."""
     query = request.args.get('query', '')
-    results = search_service.search(query)
+    sort_by = request.args.get('sortBy', 'frequency')
+    results = search_service.search(query, sort_by=sort_by)
     return jsonify({"results": results})
 
 if __name__ == '__main__':
-    print("Starting server... (http://localhost:5050)")
+    print("Starting server... (http://localhost:3600)")
     # Ensure data directories exist
     os.makedirs('data/storage', exist_ok=True)
     os.makedirs('demo', exist_ok=True)
 
     # Run with threaded=True to handle concurrent requests
-    app.run(debug=True, threaded=True, use_reloader=False, port=5050)
+    app.run(debug=True, threaded=True, use_reloader=False, port=3600)
