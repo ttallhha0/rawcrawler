@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Brightwave - Start Crawler</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <a href="/" class="navbar-brand">🕷️ Brightwave</a>
+            <div class="navbar-links">
+                <a href="/crawler.html" class="active">Crawler</a>
+                <a href="/status.html">Dashboard</a>
+                <a href="/search.html">Search</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="page-header">
+            <h1>Start a New <span class="gradient-text">Crawl</span></h1>
+            <p>Configure parameters and launch a new crawler thread in the background.</p>
+        </div>
+
+        <div class="card">
+            <form id="crawlerForm">
+                <div class="form-group">
+                    <label for="origin">🌐 Origin URL</label>
+                    <input type="text" id="origin" name="origin" placeholder="https://example.com" required>
+                </div>
+
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label for="depth">📏 Maximum Depth (k)</label>
+                        <input type="number" id="depth" name="depth" value="2" min="0" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="hit_rate">⚡ Request Rate (pages/sec)</label>
+                        <input type="number" id="hit_rate" name="hit_rate" value="5.0" step="0.1" min="0.1" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="max_queue">📦 Queue Capacity</label>
+                        <input type="number" id="max_queue" name="max_queue" value="1000" min="10" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="num_workers">🧵 Worker Threads</label>
+                        <input type="number" id="num_workers" name="num_workers" value="4" min="1" max="16" required>
+                    </div>
+                </div>
+
+                <button type="submit" class="btn btn-primary" id="submitBtn">
+                    🚀 Launch Crawler in Background
+                </button>
+            </form>
+
+            <div id="result"></div>
+        </div>
+    </div>
+
+    <script src="crawler.js"></script>
+</body>
+
+</html>

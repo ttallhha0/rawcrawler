@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Brightwave - System Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <a href="/" class="navbar-brand">🕷️ Brightwave</a>
+            <div class="navbar-links">
+                <a href="/crawler.html">Crawler</a>
+                <a href="/status.html" class="active">Dashboard</a>
+                <a href="/search.html">Search</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="page-header">
+            <h1>System <span class="gradient-text">Dashboard</span></h1>
+            <p>Monitor active crawlers in real-time. Auto-refreshes every 2 seconds.</p>
+        </div>
+
+        <div class="stats-grid">
+            <div class="stat-card blue">
+                <div class="stat-icon">⚙️</div>
+                <div class="stat-value" id="sys-status-value">Idle</div>
+                <div class="stat-label">Engine Status</div>
+            </div>
+            <div class="stat-card green">
+                <div class="stat-icon">🕷️</div>
+                <div class="stat-value" id="active-crawlers">0</div>
+                <div class="stat-label">Active Crawlers</div>
+            </div>
+            <div class="stat-card warm">
+                <div class="stat-icon">🔗</div>
+                <div class="stat-value" id="visited-urls">0</div>
+                <div class="stat-label">URLs Crawled</div>
+            </div>
+        </div>
+
+        <div style="text-align: center; margin-top: 24px;">
+            <span class="status-dot idle" id="status-dot"></span>
+            <span id="sys-status" style="color: var(--text-secondary); font-size: 14px;">System is idle</span>
+        </div>
+
+        <!-- Per-crawler detail cards -->
+        <div id="crawler-details" style="margin-top: 32px;"></div>
+    </div>
+
+    <script src="status.js"></script>
+</body>
+
+</html>

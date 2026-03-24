@@ -1,0 +1,20 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual Environments
+venv/
+env/
+ENV/
+.env
+
+# Application Data (Crawler index and visited URLs)
+# We don't want to upload crawled data to GitHub
+data/
+
+# IDE / Editor
+.vscode/
+.idea/
+*.swp
+.DS_Store

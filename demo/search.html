@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Brightwave - Search Engine</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <a href="/" class="navbar-brand">🕷️ Brightwave</a>
+            <div class="navbar-links">
+                <a href="/crawler.html">Crawler</a>
+                <a href="/status.html">Dashboard</a>
+                <a href="/search.html" class="active">Search</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="page-header">
+            <h1>Mini <span class="gradient-text">Google</span> Search</h1>
+            <p>Search across indexed web pages</p>
+        </div>
+
+        <div class="search-bar">
+            <input type="text" id="searchInput" placeholder="Search for a word... (e.g., technology, python, about)"
+                onkeypress="if(event.key === 'Enter') performSearch()">
+            <button onclick="performSearch()">🔍 Search</button>
+        </div>
+
+        <div id="resultsArea"></div>
+    </div>
+
+    <script src="search.js"></script>
+</body>
+
+</html>
